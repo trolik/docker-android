@@ -15,7 +15,7 @@ RUN curl https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xzv -
     ./android-ndk-r10e-linux-x86_64.bin && \
     rm -f android-ndk-r10e-linux-x86_64.bin
 
-ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 ENV ANDROID_HOME=/opt/android-sdk-linux
 ENV GRADLE_HOME=/opt/gradle-2.4
 ENV PATH=$GRADLE_HOME/bin:$PATH
