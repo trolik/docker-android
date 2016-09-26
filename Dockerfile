@@ -7,9 +7,9 @@ RUN dpkg --add-architecture i386 && \
 # install SDK, NDK & gradle
 WORKDIR /opt
 RUN curl https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xzv -C /opt && \
-    curl https://downloads.gradle.org/distributions/gradle-2.4-bin.zip -o gradle-2.4-bin.zip && \
-    unzip -o gradle-2.4-bin.zip -d /opt && \
-    rm -f gradle-2.4-bin.zip && \
+    curl https://downloads.gradle.org/distributions/gradle-3.1-bin.zip -o gradle-3.1-bin.zip && \
+    unzip -o gradle-3.1-bin.zip -d /opt && \
+    rm -f gradle-3.1-bin.zip && \
     curl http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin -o android-ndk-r10e-linux-x86_64.bin && \
     chmod +x android-ndk-r10e-linux-x86_64.bin && \
     ./android-ndk-r10e-linux-x86_64.bin && \
@@ -17,7 +17,7 @@ RUN curl https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xzv -
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 ENV ANDROID_HOME=/opt/android-sdk-linux
-ENV GRADLE_HOME=/opt/gradle-2.4
+ENV GRADLE_HOME=/opt/gradle-3.1
 ENV PATH=$GRADLE_HOME/bin:$PATH
 
 # install SDK components
