@@ -23,7 +23,6 @@ ENV PATH=$GRADLE_HOME/bin:$PATH
 # install SDK components
 WORKDIR $ANDROID_HOME/tools
 RUN echo "y" | ./android update sdk -u -a -t build-tools-23.1.1 && \
-    echo "y" | ./android update sdk -u -a -t build-tools-23.0.3 && \
     echo "y" | ./android update sdk -u -a -t build-tools-24.0.3 && \
     echo "y" | ./android update sdk -u -a -t build-tools-25.0.0 && \
     echo "y" | ./android update sdk -u -a -t build-tools-25.0.3 && \
