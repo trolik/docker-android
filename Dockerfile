@@ -19,20 +19,9 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 ENV ANDROID_HOME=/opt/android-sdk-linux
 ENV GRADLE_HOME=/opt/gradle-3.1
 ENV PATH=$GRADLE_HOME/bin:$PATH
+ENV ANDROID_APIS="android-23,android-24,android-25"
+ENV ANDROID_BUILD_TOOLS_VERSION=25.0.2
 
 # install SDK components
 WORKDIR $ANDROID_HOME/tools
-RUN echo "y" | ./android update sdk -u -a -t build-tools-23.1.1 && \
-    echo "y" | ./android update sdk -u -a -t build-tools-24.0.3 && \
-    echo "y" | ./android update sdk -u -a -t build-tools-25.0.0 && \
-    echo "y" | ./android update sdk -u -a -t build-tools-25.0.2 && \
-    echo "y" | ./android update sdk -u -a -t tools && \
-    echo "y" | ./android update sdk -u -a -t android-24 && \
-    echo "y" | ./android update sdk -u -a -t android-23 && \
-    echo "y" | ./android update sdk -u -a -t android-25 && \
-    echo "y" | ./android update sdk -u -a -t extra-android-m2repository && \
-    echo "y" | ./android update sdk -u -a -t extra-google-m2repository && \
-    echo "y" | ./android update sdk -u -a -t extra-android-support && \
-    echo "y" | ./android update sdk -u -a -t extra-google-analytics_sdk_v2 && \
-    echo "y" | ./android update sdk -u -a -t extra-google-google_play_services \
-
+RUN echo y | ./android update sdk -a -u -t platform-tools,${ANDROID_APIS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-analytics_sdk_v2,extra-google-google_play_services
