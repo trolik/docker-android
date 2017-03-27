@@ -24,4 +24,4 @@ ENV ANDROID_BUILD_TOOLS_VERSION=25.0.0
 
 # install SDK components
 WORKDIR $ANDROID_HOME/tools
-RUN echo y | ./android update sdk -a -u -t platform-tools,${ANDROID_APIS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-analytics_sdk_v2,extra-google-google_play_services
+RUN echo y | ./android update sdk -a -u -t platform-tools,${ANDROID_APIS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-analytics_sdk_v2,extra-google-google_play_services,constraint-layout
