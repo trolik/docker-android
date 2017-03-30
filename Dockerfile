@@ -6,7 +6,7 @@ RUN dpkg --add-architecture i386 && \
 
 # install SDK, NDK & gradle
 WORKDIR /opt
-RUN curl https://dl.google.com/android/repository/tools_r25.2.3-linux.zip | tar xzv -C /opt && \
+RUN curl https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xzv -C /opt && \
     curl https://downloads.gradle.org/distributions/gradle-3.1-bin.zip -o gradle-3.1-bin.zip && \
     unzip -o gradle-3.1-bin.zip -d /opt && \
     rm -f gradle-3.1-bin.zip && \
@@ -24,7 +24,4 @@ ENV ANDROID_BUILD_TOOLS_VERSION=25.0.0
 
 # install SDK components
 WORKDIR $ANDROID_HOME/tools
-RUN echo y | ./android update sdk -a -u -t platform-tools,${ANDROID_APIS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-analytics_sdk_v2,extra-google-google_play_services,constraint-layout
-
-RUN echo y | /opt/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1"
-
+RUN echo y | ./android update sdk -a -u -t platform-tools,${ANDROID_APIS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-analytics_sdk_v2,extra-google-google_play_services
